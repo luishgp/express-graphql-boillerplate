@@ -52,10 +52,9 @@ export class Server {
 
   private configureSequelize(): Server {
     // prettier-ignore
-    Connection
+    new Connection()
       .start()
       .catch((e: any) => {
-        console.log(e);
         log.error(`[Sequelize ERROR] ${e}`);
       });
 
