@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "lint": "tsc --noEmit && eslint src/**/*.ts --quiet --fix",
+    "lint": "tsc --noEmit && eslint app/**/*.ts --quiet --fix",
     "start": "nodemon",
     "clean": "rimraf dist",
-    "test": "mocha -r ts-node/register src/__test__/**/*.ts",
+    "test": "mocha -r ts-node/register app/__test__/**/*.ts",
     "build": "yarn run clean && tsc --build"
   },
   "author": {
@@ -42,9 +42,11 @@
     "express": "^4.17.1",
     "module-alias": "^2.2.2",
     "winston": "^3.2.1",
-    "winston-daily-rotate-file": "^4.1.0"
+    "winston-daily-rotate-file": "^4.1.0",
+    "@graphql-modules/core": "latest"
   },
   "_moduleAliases": {
-    "@": "src"
+    "@": "app",
+    "Config": "config"
   }
 }

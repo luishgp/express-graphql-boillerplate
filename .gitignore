@@ -7,5 +7,6 @@ logs
 .vscode
 .DS_Store
 .idea
+.env
 yarn-error.log
 npm-debug.log

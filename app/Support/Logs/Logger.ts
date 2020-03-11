@@ -1,6 +1,3 @@
-/* graphql-server-boilerplate
-Copyright (c) 2019-present NAVER Corp.
-MIT license */
 import { createLogger, transports, format } from 'winston';
 import winstonDailyRotateFile from 'winston-daily-rotate-file';
 
@@ -54,6 +51,6 @@ switch (process.env.NODE_ENV) {
     break;
 }
 
-const logger = createLogger(option);
+const log = createLogger(option);
 
-export { logger };
+export { log };

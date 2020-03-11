@@ -10,8 +10,8 @@ import { template } from 'lodash';
 
 import { ApolloServer, ApolloServerExpressConfig, ServerRegistration } from 'apollo-server-express';
 
-import { allSchema } from '@/graphql/schema';
-import { logger } from '@/appbase/logger';
+import { GraphQLModules } from 'Config/GraphQL';
+import { log } from '@/Support/Logs/Logger';
 
 export class Server {
   private readonly _app: Application;
@@ -54,14 +54,16 @@ export class Server {
   }
 
   private configureApolloServer(): Server {
+    const { schema } = GraphQLModules;
+
     // applly apollo confing to express app
     const apolloConfig: ApolloServerExpressConfig = {
-      schema: allSchema,
+      schema,
       context: async ctx => {
         return { ...ctx };
       },
       formatError: error => {
-        logger.error(`[Graphql ERROR] ${error}`);
+        log.error(`[Graphql ERROR] ${error}`);
         return error;
       },
     };
@@ -79,12 +81,12 @@ export class Server {
     return this;
   }
 
-  private static async onSignal(): Promise<any> {
+  static async onSignal(): Promise<any> {
     return;
   }
 
-  private static async onShutdown(): Promise<any> {
-    logger.info('cleanup finished, server is shutting down');
+  static async onShutdown(): Promise<any> {
+    log.info('cleanup finished, server is shutting down');
   }
 
   public start(): Server {
@@ -107,7 +109,7 @@ export class Server {
 
     // start server
     server.listen(PORT, () => {
-      logger.info(`Server listening on ${APP_URL({ HOST, PORT })}`);
+      log.info(`Server listening on ${APP_URL({ HOST, PORT })}`);
     });
 
     return this;

@@ -5,5 +5,5 @@
   },
   "delay": "500",
   "ext": "ts",
-  "exec": "ts-node src/index.ts"
+  "exec": "ts-node bootstrap/start.ts"
 }

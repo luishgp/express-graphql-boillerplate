@@ -1,4 +1,7 @@
 import 'module-alias/register';
 import { Server } from '@/Units/Core/Express/Server';
 
-new Server().configure().start();
+// prettier-ignore
+new Server()
+    .configure()
+    .start();

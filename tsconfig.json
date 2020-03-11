@@ -10,9 +10,14 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["app/*"],
+      "Config/*": ["config/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": [
+    "app/**/*",
+    "config/*",
+    "bootstrap/*"
+  ],
   "exclude": ["node_modules", "**/__test__/*"]
 }
