@@ -1,1 +1,1 @@
-# express-graphql-boillerplate
+﻿# GraphQL Server boilerplate
