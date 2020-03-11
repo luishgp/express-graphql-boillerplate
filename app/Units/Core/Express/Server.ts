@@ -8,6 +8,8 @@ import dotenv from 'dotenv';
 import { createTerminus } from '@godaddy/terminus';
 import { template } from 'lodash';
 
+import Connection from '@/Units/Core/Database/Connection';
+
 import { ApolloServer, ApolloServerExpressConfig, ServerRegistration } from 'apollo-server-express';
 
 import { GraphQLModules } from 'Config/GraphQL';
@@ -28,6 +30,7 @@ export class Server {
   public configure(): Server {
     return this.loadEnvVariables()
       .setDebugMode()
+      .configureSequelize()
       .configureExpressServer()
       .configureApolloServer();
   }
@@ -43,6 +46,18 @@ export class Server {
     if (process.env.NODE_ENV === 'development') {
       this._app.use(errorhandler());
     }
+
+    return this;
+  }
+
+  private configureSequelize(): Server {
+    // prettier-ignore
+    Connection
+      .start()
+      .catch((e: any) => {
+        console.log(e);
+        log.error(`[Sequelize ERROR] ${e}`);
+      });
 
     return this;
   }

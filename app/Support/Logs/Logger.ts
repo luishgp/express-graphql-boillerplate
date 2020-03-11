@@ -18,7 +18,7 @@ const enumerateErrorFormat = format(info => {
 const console = new transports.Console({ level: 'debug' });
 
 const consoleRotateFile = new winstonDailyRotateFile({
-  dirname: './logs',
+  dirname: './storage/app/logs',
   filename: 'app-console-%DATE%.log',
   datePattern: 'YYYY-MM-DD-HH',
   maxFiles: '3d',

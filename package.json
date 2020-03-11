@@ -15,11 +15,14 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/bluebird": "^3.5.30",
     "@types/chai": "^4.2.2",
     "@types/cookie-parser": "^1.4.2",
     "@types/errorhandler": "^0.0.32",
     "@types/lodash": "^4.14.138",
     "@types/mocha": "^5.2.7",
+    "@types/sequelize": "^4.28.8",
+    "@types/validator": "^12.0.1",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
     "chai": "^4.2.0",
@@ -35,15 +38,17 @@
   },
   "dependencies": {
     "@godaddy/terminus": "^4.2.0",
+    "@graphql-modules/core": "latest",
     "apollo-server-express": "^2.9.3",
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.2.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
     "module-alias": "^2.2.2",
+    "sequelize": "^5.21.5",
+    "sqlite": "^3.0.3",
     "winston": "^3.2.1",
-    "winston-daily-rotate-file": "^4.1.0",
-    "@graphql-modules/core": "latest"
+    "winston-daily-rotate-file": "^4.1.0"
   },
   "_moduleAliases": {
     "@": "app",
